@@ -1,160 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+## Heart-Disease-Prediction
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	/* outline: solid 1px; */
-}
+This Project is mainly divided into two parts:
 
-body {
-	display: flex;
-	justify-content: center;
-	flex-direction: columns;
-	align-items: center;
-	background-color: #f5f5f5;
-	font-family: "Poppins", sans-serif;
-	min-height: 100vh;
-	font-weight: 500;
-	flex-direction: column;
-	background: linear-gradient(to right top, #6ed8c5, #05a6be);
+1.  Exploring the dataset and traning the model using `Sklearn`.
+2.  Building and hosting a `flask`
 
-}
+**About the repository Structure :**
 
-.container {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding: auto;
-	height: inherit;
-	width: 100%;
-	border-radius: 2rem;
-	z-index: 2;
-	backdrop-filter: blur(2rem);
+- Project consist `app.py` script which is used to run the application and is engine of this app. is used to predict using the data given by the user in the form
+- `model.py` contains code to build and train a Machine learning model.
+- in  _templates_  `index.html` is the frontend start page
+- in  _templates_  `result.html` is the frontend result page
+- in _static_ `style.css` is for styling
 
-}
+### Installation
 
-form {
-	margin-top: 10px;
-	background: linear-gradient(to right bottom,
-			rgba(255, 255, 255, 0.7),
-			rgba(255, 255, 255, 0.3));
-	padding: 20px 16px;
-	border-radius: 10px;
-	min-width: inherit;
-	margin-bottom: 10px;
+If you have never ran a machine learning model on you machine then it is recommended to install these dependencies.
+open cmd as admin user
 
-}
+```
+pip install numpy
+```
 
-form h1 {
-	color: #eb7371;
-	text-align: center;
-}
+```
+pip install pandas
+```
 
-form .inputs {
-	padding: 5px;
-	border: none;
-	border-radius: 5px;
-	background: linear-gradient(to right bottom,
-			rgba(255, 255, 255, 0.7),
-			rgba(255, 255, 255, 0.3));
-	outline: none;
-	margin-bottom: 15px;
-}
+```
+pip install -U scikit-learn
+```
 
-form .inputs input[type='text'],
-select {
-	padding: 5px;
-	border-radius: 5px;
-	background-color: #f2f2f2;
-	outline: none;
-	margin-bottom: 15px;
-	margin-left: 10px;
+```
+pip install Flask
+```
 
-	border: none;
-	border-bottom: 1px solid #EB7371;
+### Run
 
-}
+_To Run the Application_
 
+- first run `model.py` then a pickel file will be created for your model.
 
-form button {
-	padding: 15px 25px;
-	border-radius: 5px;
-	border: none;
-	font-size: 15px;
-	color: #fff;
-	background-color: #eb7371;
-	outline: none;
-	cursor: pointer;
-}
+```
+python model.py
+```
 
-.result button {
-	/* padding: 15px 25px; */
-	border-radius: 5px;
-	border: none;
-	font-size: 15px;
-	color: #fff;
-	background-color: #eb7371;
-	outline: none;
-	cursor: pointer;
-	margin: 3px 6px;
-}
+- then run `app.py` to deploy you model in the web
 
-.form_result{
-	padding: 3px 3px;
-}
+```
+python app.py
+```
 
-.result {
-	margin-top: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 20px 40px;
-	border-radius: 10px;
-	/* min-width: 300px; */
-	margin-bottom: 10px;
-
-	padding: auto;
-	height: inherit;
-	width: 100%;
-	z-index: 2;
-	backdrop-filter: blur(2rem);
-}
-
-.result h1 {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
-
-.danger {
-	color: #ff0000;
-}
-
-.safe {
-	color: green;
-}
-
-.circle1,
-.circle2 {
-	background: white;
-	background: linear-gradient(to right bottom,
-			rgba(255, 255, 255, 0.8),
-			rgba(255, 255, 255, 0.3));
-	height: 20rem;
-	width: 20rem;
-	position: absolute;
-	border-radius: 50%;
-}
-
-.circle1 {
-	top: 5%;
-	right: 15%;
-}
-
-.circle2 {
-	bottom: 5%;
-	left: 10%;
-}
+- in terminal a address will be generated like `http://127.0.0.1:5000` open it to deploy
